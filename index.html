@@ -38,32 +38,28 @@
 <body class="deck-container">
 
 <section class="slide" id="title-slide">
-   <h1>CasperJS</h1>
-   <ol style="list-style-type: none;">
-      <li style="background-color:transparent; padding-top: 450px; padding-left: 125px;">
-         <h3>The Ghost Tour<h3>
-      </li>
-   </ol>
+   <h1>The Ghost Tour<h1>
+   <h2>CasperJS</h2>
 </section>
 
 <section class="slide" id="what-slide">
-   <h2>What?</h2>
-   <ol style="list-style-type: none;">
+   <h2>What is it?</h2>
+   <ol style="list-style-type: square;">
       <li class="slide" id="comment-tool" style="background-color:transparent;">
          <h3>A browser testing utility, written in Javascript<h3>
       </li>
       <li class="slide" id="comment-write" style="background-color:transparent;">
-         <h3>You write your tests in Javascript (Or coffeescript)<h3>
+         <h3>It let you write your tests in Javascript (Or coffeescript)<h3>
       </li>
       <li class="slide" id="comment-phantom" style="background-color:transparent;">
-         <h3>And they runs in PhantomJS<h3>
+         <h3>And runs them in PhantomJS<h3>
       </li>
    </ol>
 </section>
 
 <section class="slide" id="phantom">
    <h2>PhantomJS?</h2>
-   <ol style="list-style-type: none;">
+   <ol style="list-style-type: square;">
       <li class="slide" style="background-color:transparent;">
          <h3>A headless webkit<h3>
       </li>
@@ -77,52 +73,345 @@
          <h3>Even Canvas and SVG<h3>
       </li>
       <li class="slide" style="background-color:transparent;">
-         <h3>Allows you to create screenshots<h3>
+         <h3>Allows you to take screenshots<h3>
       </li>
    </ol>
 </section>
 
-<section class="slide" id="phantom">
-   <h2>'JS'</h2>
-   <ol style="list-style-type: none;">
+<section class="slide" id="nonode">
+   <h2>no-node.js</h2>
+   <ol style="list-style-type: square;">
       <li style="background-color:transparent;">
-         <h3>Nothing to do with Node.js<h3>
+         <h3>It's not a Node.js library<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>It's a standalone tool<h3>
       </li>
    </ol>
 </section>
 
-<section class="slide" id="more">
-   <h2>Why?</h2>
-   <ol style="list-style-type: none;">
-      <li class="slide" style="background-color:transparent;">
-         <h3>Integration testing is important<h3>
+<section class="slide" id="alternatives">
+   <h2>Alternatives</h2>
+   <ol style="list-style-type: square;">
+      <li style="background-color:transparent;">
+         <h3>HTMLUnit. Headless. Reimplementation of browser capacities<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>Behat / Mink. BDD oriented. Gherkin syntax + PHP. Multiple browsers.<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>Selenium. Java based. Multiple browsers.<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>Cucumber. BDD. Gherkin + Ruby + Selenium.<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>Capybara. Multiple browsers<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>etc...<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>etc...<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>etc...<h3>
+      </li>
+   </ol>
+</section>
+
+<section class="slide" id="schema">
+   <h2>A Schema is worth a thousand words</h2>
+   <img src="./schema.png" /> 
+</section>
+
+<section class="slide" id="advices">
+   <h2>Advices on Browser testing</h2>
+   <ol style="list-style-type: square;">
+      <li style="background-color:transparent;">
+         <h3>/!\ Only my humble opinion /!\<h3>
       </li>
       <li class="slide" style="background-color:transparent;">
-         <h3>I strongly believe you have to test your entire stack<h3>
+         <h3>DO IT. It's important to test the whole stack<h3>
       </li>
       <li class="slide" style="background-color:transparent;">
-         <h3>THERE IS A TRAP!<h3>
+         <h3>Integration tests should be in your CI<h3>
       </li>
       <li class="slide" style="background-color:transparent;">
-         <h3>Always keep the tests simple and test only the minimum<h3>
+         <h3>Don't try to test everything. KISS.<h3>
+      </li>
+      <li class="slide" style="background-color:transparent;">
+         <h3>Integration tests are not here to test your design<h3>
+      </li>
+      <li class="slide" style="background-color:transparent;">
+         <h3>Try to avoid Javascript scenarios<h3>
+      </li>
+      <li class="slide" style="background-color:transparent;">
+         <h3>Run a complete different suite on Internet Explorer<h3>
+      </li>
+      <li class="slide" style="background-color:transparent;">
+         <h3>Integration tests are slow. Learn to run them in parallel<h3>
       </li>
    </ol>               
 </section>
    
+<section class="slide" id="steps">
+   <h2>Let's start - Navigation steps</h2>
+   <pre>
+      <code>
+        var casper = require('casper').create();
+
+        casper.<span style="color: red;">start</span>('http://google.fr/', function() {
+        });
+
+        casper.<span style="color: red;">then</span>(function() {
+        });
+
+        casper.<span style="color: red;">thenClick('element'</span>, function() {
+        });
+
+        casper.then().<span style="color: red;">repeat(2, </span>function() {
+        });
+
+        casper.<span style="color: red;">back</span>(function() {
+        });
+
+        casper.<span style="color: red;">run</span>(function() {
+        });
+      </code>
+   </pre>
+</section>
+
+<section class="slide" id="selectors">
+   <h2>CSS3 Selectors are the right... XPath</h2>
+   <pre>
+      <code>
+      casper.thenOpen('http://domain.tld/page.html', function() {
+         this.test.assertExists(<span style="color: red;">x('//*[@id="plop"]')</span>, 'the element exists');
+      });
+      </code>
+   </pre>
+   <pre>
+      <code>
+      casper.start('http://domain.tld/page.html', function() {
+         this.test.assertExists(<span style="color: red;">'#plop'</span>, 'the element exists');
+      });
+
+      casper.then(function() {
+         this.click(<span style="color: red;">'h3.r a'</span>);
+      });
+
+      casper.then(function() {
+         this.<span style="color: red;">clickLabel('My link is beautiful'</span>, 'a');
+      });
+      </code>
+   </pre>
+</section>
+
+<section class="slide" id="fills">
+   <h2>Form fill and upload... upload !!</h2>
+   <pre>
+      <code>
+         &lt;form action="/contact" <span style="color: red;">id="contact-form" enctype="multipart/form-data</span>"&gt;
+             &lt;input <span style="color: red;">type="text"</span> name="subject"&gt;
+             &lt;input <span style="color: red;">type="radio"</span> name="civility" value="Mr"/&gt; Mr
+             &lt;input <span style="color: red;">type="radio"</span> name="civility" value="Mrs"/&gt; Mrs
+             &lt;input type="text" name="name"/&gt;
+             &lt;input type="email" name="email"/&gt;
+             &lt;input <span style="color: red;">type="file"</span> name="attachment"/&gt;
+             &lt;input type="checkbox" name="cc"/&gt; Receive a copy
+             &lt;input <span style="color: red;">type="submit"</span>/>
+         &lt;/form>
+      </code>
+   </pre>
+   <pre>
+      <code>
+      casper.start('http://some.tld/contact.form', function() {
+         this.<span style="color: red;">fill('form#contact-form'</span>, {
+              'subject':    'I am watching you',
+              'civility':   <span style="color: red;">'Mr',</span>
+              'name':       'Chuck Norris',
+              'email':      'chuck@norris.com',
+              'cc':         <span style="color: red;">true,</span>
+              'attachment': <span style="color: red;">'/Users/chuck/roundhousekick.doc'</span>
+          }, <span style="color: red;">true</span>);
+      });
+      </code>
+   </pre>
+</section>
+
+<section class="slide" id="waitFor">
+<h2>waitFor, waitWhile</h2>
+   <pre>
+      <code>
+      casper.<span style="color: red;">waitFor</span>(function check() {
+          <span style="color: red;">// Anything !</span>
+          return this.evaluate(function() {
+              return document.querySelectorAll('ul.your-list li').length > 2;
+          });
+      }, function <span style="color: red;">then()</span> {
+         <span style="color: red;">// something to execute when check() is ok</span>
+         this.captureSelector('yoursitelist.png', 'ul.your-list');
+      }, function <span style="color: red;">timeout()</span> {
+         <span style="color: red;">// something to execute if check has failed</span>
+         this.echo("I can't haz my screenshot.").exit();
+      });
+      </code>
+   </pre>
+   <pre>
+      <code>
+      casper.<span style="color: red;">waitForSelector('.tweet-row'</span>, function() {});
+      casper.<span style="color: red;">waitWhileSelector('.selector'</span>, function() {});
+
+      casper.<span style="color: red;">waitUntilVisible('.tweet-row'</span>, function() {});
+      casper.<span style="color: red;">waitWhileVisible('.selector'</span>, function() {});
+
+      casper.<span style="color: red;">waitForPopup(/popup\.html$/</span>, function() {});
+      this.<span style="color: red;">waitForResource("foobar.png")</span>;
+      </code>
+   </pre>
+</section>
+
+<section class="slide" id="evaluates">
+   <h2>Evaluates is a hard Worker</h2>
+   <pre>
+      <code>
+      casper.<span style="color: red;">evaluate</span>(function(username, password) {<span style="color: blue;">
+          document.querySelector('#username').value = username;
+          document.querySelector('#password').value = password;
+          document.querySelector('#submit').click();</span>
+      }, <span style="color: red;">'sheldon.cooper', 'b4z1ng4');
+      </code>
+   </pre>
+   <pre>
+      <code>
+      casper = require('casper').create {
+          <span style="color: red;">clientScripts: ["includes/underscore-min.js"]</span>
+      }
+      </code>
+   </pre>
+   <pre>
+      <code>
+      this.test.<span style="color: red;">assertEval</span>(function(title) 
+      }, 'google.fr title is "Google"', 'Google');
+
+      this.test.<span style="color: red;">assertEvalEquals</span>(function() {
+         return document.title;
+      }, 'Google', 'google.fr title is "Google"');
+      </code>
+   </pre>
+</section>
+
+<section class="slide" id="assertions">
+   <h2>Assertions</h2>
+   <h4>True</h4>
+</section>
+
+<section class="slide" id="screenshots">
+   <h2>Screenshots & Downloads</h2>
+   <pre>
+      <code>
+      casper.start('http://www.weather.com/', function() {
+          this.<span style="color: red;">captureSelector('weather.png', '#wx-main')</span>;
+      });
+      </code>
+   </pre>
+   <pre>
+      <code>
+      casper.start().<span style="color: red;">zoom(2)</span>.thenOpen('http://google.com', function() {
+          this.capture('big-google.png');
+      });
+      </code>
+   </pre>
+   <pre>
+      <code>
+      this.<span style="color: red;">download</span>(url, 'google_company.html');
+      </code>
+   </pre>
+</section>
+
+<section class="slide" id="events">
+   <h2>events and filters</h2>
+   <pre>
+      <code>
+      casper.<span style="color: red;">on('open'</span>, function(<span style="color: red;">location, settings</span>) {
+          casper.echo(location);
+      });
+      </code>
+   </pre>
+   <pre>
+      <code>
+      // listening to a custom event
+      casper.<span style="color: red;">on('google.loaded'</span>, function() {
+          this.echo('Google page title is ' + this.getTitle());
+      });
+      casper.start('http://google.com/', function() {
+         // emitting a custom event
+         this.<span style="color: red;">emit('google.loaded'</span>);
+      });
+      </code>
+   </pre>
+   <pre>
+      <code>
+      casper.<span style="color: red;">setFilter('open.location'</span>, function(<span style="color: red;">location</span>) {
+         return /\?+/.test(location) ? <span style="color: red;">location += "&foo=42"</span> : location += "?foo=42";
+      });
+      </code>
+   </pre>
+</section>
+
+<section class="slide" id="debug">
+   <h2>Drawback: Debugging</h2>
+   <ol style="list-style-type: square;">
+      <li style="background-color:transparent;">
+         <h3>From the creator himself: Debugging is hard.<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>PhantomJS don't give many useful informations about the failure.<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>Advice 1: Always name the functions.<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>Advice 2: Use verbose mode.<h3>
+      </li>
+      <pre>
+         <code>
+         var casper = require('casper').create({<span style="color: red;">   
+             verbose: true,
+             logLevel: "debug"</span>
+         });
+         </code>
+      </pre>
+   </ol>
+</section>
+
+<section class="slide" id="more">
+   <h2>Many more features</h2>
+   <br />
+   <h4><u>Assertions, Utils, ClientUtils, Casper options, Logging, etc...</u></h4>
+   <br />
+   <h4><u><a href="http://casperjs.org/">http://casperjs.org</a></u></h4>
+   <br />
+   <h4><a href="http://github.com/n1k0/casperjs">http://github.com/n1k0/casperjs</a></h4>
+   <br />
+   <h4><u>Integration with node.js</u></h4>
+   <br />
+   <h4><a href="https://github.com/WaterfallEngineering/SpookyJS">https://github.com/WaterfallEngineering/SpookyJS</a></h4>
+   <h4><u>BDD</u></h4>
+   <br />
+   <h4><a href="https://github.com/cucumber/cucumber-js/">https://github.com/cucumber/cucumber-js/</a></h4>
+   <br />
+   <h4><u>PhantomJS can be run from Selenium too</u></h4>
+   <br />
+   <h4><a href="https://github.com/detro/ghostdriver">https://github.com/detro/ghostdriver</a></h4>
+   <br />
+   <h4><a href="http://phantomjs.org/">http://phantomjs.org/</a></h4>
+</section>
+
 <section class="slide" id="demo">
-   <h2>What is difference with other frameworks</h2>
-</section>
-
-<section class="slide" id="alternatives">
-   <h2>Main features</h2>
-</section>
-
-<section class="slide" id="link">
-   <h2>Demo</h2>
-</section>
-
-<section class="slide" id="link">
-   <h2>Integration with third party tools</h2>
+   <h2>Demo: Let's see some code now</h2>
+   <img src="cat.jpg" />
 </section>
 
 <!-- deck.navigation snippet -->
