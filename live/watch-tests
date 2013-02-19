@@ -1,1 +1,1 @@
-nodemon --watch ./play-hello-world.coffee --exec casperjs ./play-hello-world.coffee
+nodemon --watch ./play-hello-world.coffee --exec casperjs test ./play-hello-world.coffee --direct

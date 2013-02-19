@@ -186,6 +186,8 @@
    <h2>CSS3 Selectors are the right... XPath</h2>
    <pre>
       <code>
+      var x = require('casper')<span style="color: red;">.selectXPath</span>
+
       casper.thenOpen('http://domain.tld/page.html', function() {
          this.test.assertExists(<span style="color: red;">x('//*[@id="plop"]')</span>, 'the element exists');
       });
@@ -204,6 +206,8 @@
       casper.then(function() {
          this.<span style="color: red;">clickLabel('My link is beautiful'</span>, 'a');
       });
+
+      casper.run();
       </code>
    </pre>
 </section>
@@ -287,13 +291,14 @@
       <code>
       casper = require('casper').create {
           <span style="color: red;">clientScripts: ["includes/underscore-min.js"]</span>
+          <span style="color: red;">remoteScripts: ["http://code.jquery.com/jquery-1.9.1.min.js"]</span>
       }
       </code>
    </pre>
    <pre>
       <code>
       this.test.<span style="color: red;">assertEval</span>(function(title) 
-      }, 'google.fr title is "Google"', 'Google');
+      }, 'Google', 'google.fr title is "Google"');
 
       this.test.<span style="color: red;">assertEvalEquals</span>(function() {
          return document.title;
@@ -373,7 +378,10 @@
          <h3>Advice 1: Always name the functions.<h3>
       </li>
       <li style="background-color:transparent;">
-         <h3>Advice 2: Use verbose mode.<h3>
+         <h3>Advice 2: There is a bookmarklet to test ClientUtil on your favourite browser. Use it.<h3>
+      </li>
+      <li style="background-color:transparent;">
+         <h3>Advice 3: Use verbose mode.<h3>
       </li>
       <pre>
          <code>
@@ -407,6 +415,10 @@
    <h4><a href="https://github.com/detro/ghostdriver">https://github.com/detro/ghostdriver</a></h4>
    <br />
    <h4><a href="http://phantomjs.org/">http://phantomjs.org/</a></h4>
+   <br />
+   <h4><u>A whole ecosystem available!</u></h4>
+   <br />
+   <h4><a href="https://github.com/casperjs">https://github.com/casperjs</a></h4>
 </section>
 
 <section class="slide" id="demo">
