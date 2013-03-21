@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
@@ -27,11 +26,11 @@
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
 	<link rel="stylesheet" href="./css/transition/horizontal-slide.css">
-   <style>
-   #basic-code.deck-previous {
-      display:none;
-   }
-   </style>
+    <style>
+        ol,ul { list-style-type: square; }
+        .deck-container mark { background: none; color: red; }
+        .deck-container mark.alt { color: blue; }
+    </style>
 	<script src="./js/modernizr.custom.js"></script>
 </head>
 
@@ -44,14 +43,14 @@
 
 <section class="slide" id="what-slide">
    <h2>What is it?</h2>
-   <ol style="list-style-type: square;">
-      <li class="slide" id="comment-tool" style="background-color:transparent;">
+   <ol>
+      <li class="slide" id="comment-tool">
          <h3>A browser testing utility, written in Javascript<h3>
       </li>
-      <li class="slide" id="comment-write" style="background-color:transparent;">
+      <li class="slide" id="comment-write">
          <h3>It let you write your tests in Javascript (Or coffeescript)<h3>
       </li>
-      <li class="slide" id="comment-phantom" style="background-color:transparent;">
+      <li class="slide" id="comment-phantom">
          <h3>And runs them in PhantomJS<h3>
       </li>
    </ol>
@@ -59,20 +58,20 @@
 
 <section class="slide" id="phantom">
    <h2>PhantomJS?</h2>
-   <ol style="list-style-type: square;">
-      <li class="slide" style="background-color:transparent;">
+   <ol>
+      <li class="slide">
          <h3>A headless webkit<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Support Javascript<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Handle DOM, CSS selector<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Even Canvas and SVG<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Allows you to take screenshots<h3>
       </li>
    </ol>
@@ -80,11 +79,11 @@
 
 <section class="slide" id="nonode">
    <h2>no-node.js</h2>
-   <ol style="list-style-type: square;">
-      <li style="background-color:transparent;">
+   <ol>
+      <li>
          <h3>It's not a Node.js library<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>It's a standalone tool<h3>
       </li>
    </ol>
@@ -92,29 +91,29 @@
 
 <section class="slide" id="alternatives">
    <h2>Alternatives</h2>
-   <ol style="list-style-type: square;">
-      <li style="background-color:transparent;">
+   <ol>
+      <li>
          <h3>HTMLUnit. Headless. Reimplementation of browser capacities<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>Behat / Mink. BDD oriented. Gherkin syntax + PHP. Multiple browsers.<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>Selenium. Java based. Multiple browsers.<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>Cucumber. BDD. Gherkin + Ruby + Selenium.<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>Capybara. Multiple browsers<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>etc...<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>etc...<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>etc...<h3>
       </li>
    </ol>
@@ -127,29 +126,29 @@
 
 <section class="slide" id="advices">
    <h2>Advices on Browser testing</h2>
-   <ol style="list-style-type: square;">
-      <li style="background-color:transparent;">
+   <ol>
+      <li>
          <h3>/!\ Only my humble opinion /!\<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>DO IT. It's important to test the whole stack<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Integration tests should be in your CI<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Don't try to test everything. KISS.<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Integration tests are not here to test your design<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Try to avoid Javascript scenarios<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Run a complete different suite on Internet Explorer<h3>
       </li>
-      <li class="slide" style="background-color:transparent;">
+      <li class="slide">
          <h3>Integration tests are slow. Learn to run them in parallel<h3>
       </li>
    </ol>               
@@ -161,22 +160,22 @@
       <code>
         var casper = require('casper').create();
 
-        casper.<span style="color: red;">start</span>('http://google.fr/', function() {
+        casper.<mark>start</mark>('http://google.fr/', function() {
         });
 
-        casper.<span style="color: red;">then</span>(function() {
+        casper.<mark>then</mark>(function() {
         });
 
-        casper.<span style="color: red;">thenClick('element'</span>, function() {
+        casper.<mark>thenClick('element'</mark>, function() {
         });
 
-        casper.then().<span style="color: red;">repeat(2, </span>function() {
+        casper.then().<mark>repeat(2, </mark>function() {
         });
 
-        casper.<span style="color: red;">back</span>(function() {
+        casper.<mark>back</mark>(function() {
         });
 
-        casper.<span style="color: red;">run</span>(function() {
+        casper.<mark>run</mark>(function() {
         });
       </code>
    </pre>
@@ -186,25 +185,25 @@
    <h2>CSS3 Selectors are the right... XPath</h2>
    <pre>
       <code>
-      var x = require('casper')<span style="color: red;">.selectXPath</span>
+      var x = require('casper')<mark>.selectXPath</mark>
 
       casper.thenOpen('http://domain.tld/page.html', function() {
-         this.test.assertExists(<span style="color: red;">x('//*[@id="plop"]')</span>, 'the element exists');
+         this.test.assertExists(<mark>x('//*[@id="plop"]')</mark>, 'the element exists');
       });
       </code>
    </pre>
    <pre>
       <code>
       casper.start('http://domain.tld/page.html', function() {
-         this.test.assertExists(<span style="color: red;">'#plop'</span>, 'the element exists');
+         this.test.assertExists(<mark>'#plop'</mark>, 'the element exists');
       });
 
       casper.then(function() {
-         this.click(<span style="color: red;">'h3.r a'</span>);
+         this.click(<mark>'h3.r a'</mark>);
       });
 
       casper.then(function() {
-         this.<span style="color: red;">clickLabel('My link is beautiful'</span>, 'a');
+         this.<mark>clickLabel('My link is beautiful'</mark>, 'a');
       });
 
       casper.run();
@@ -216,29 +215,29 @@
    <h2>Form fill and upload... upload !!</h2>
    <pre>
       <code>
-         &lt;form action="/contact" <span style="color: red;">id="contact-form" enctype="multipart/form-data</span>"&gt;
-             &lt;input <span style="color: red;">type="text"</span> name="subject"&gt;
-             &lt;input <span style="color: red;">type="radio"</span> name="civility" value="Mr"/&gt; Mr
-             &lt;input <span style="color: red;">type="radio"</span> name="civility" value="Mrs"/&gt; Mrs
+         &lt;form action="/contact" <mark>id="contact-form" enctype="multipart/form-data</mark>"&gt;
+             &lt;input <mark>type="text"</mark> name="subject"&gt;
+             &lt;input <mark>type="radio"</mark> name="civility" value="Mr"/&gt; Mr
+             &lt;input <mark>type="radio"</mark> name="civility" value="Mrs"/&gt; Mrs
              &lt;input type="text" name="name"/&gt;
              &lt;input type="email" name="email"/&gt;
-             &lt;input <span style="color: red;">type="file"</span> name="attachment"/&gt;
+             &lt;input <mark>type="file"</mark> name="attachment"/&gt;
              &lt;input type="checkbox" name="cc"/&gt; Receive a copy
-             &lt;input <span style="color: red;">type="submit"</span>/>
+             &lt;input <mark>type="submit"</mark>/>
          &lt;/form>
       </code>
    </pre>
    <pre>
       <code>
       casper.start('http://some.tld/contact.form', function() {
-         this.<span style="color: red;">fill('form#contact-form'</span>, {
+         this.<mark>fill('form#contact-form'</mark>, {
               'subject':    'I am watching you',
-              'civility':   <span style="color: red;">'Mr',</span>
+              'civility':   <mark>'Mr',</mark>
               'name':       'Chuck Norris',
               'email':      'chuck@norris.com',
-              'cc':         <span style="color: red;">true,</span>
-              'attachment': <span style="color: red;">'/Users/chuck/roundhousekick.doc'</span>
-          }, <span style="color: red;">true</span>);
+              'cc':         <mark>true,</mark>
+              'attachment': <mark>'/Users/chuck/roundhousekick.doc'</mark>
+          }, <mark>true</mark>);
       });
       </code>
    </pre>
@@ -248,30 +247,30 @@
 <h2>waitFor, waitWhile</h2>
    <pre>
       <code>
-      casper.<span style="color: red;">waitFor</span>(function check() {
-          <span style="color: red;">// Anything !</span>
+      casper.<mark>waitFor</mark>(function check() {
+          <mark>// Anything !</mark>
           return this.evaluate(function() {
               return document.querySelectorAll('ul.your-list li').length > 2;
           });
-      }, function <span style="color: red;">then()</span> {
-         <span style="color: red;">// something to execute when check() is ok</span>
+      }, function <mark>then()</mark> {
+         <mark>// something to execute when check() is ok</mark>
          this.captureSelector('yoursitelist.png', 'ul.your-list');
-      }, function <span style="color: red;">timeout()</span> {
-         <span style="color: red;">// something to execute if check has failed</span>
+      }, function <mark>timeout()</mark> {
+         <mark>// something to execute if check has failed</mark>
          this.echo("I can't haz my screenshot.").exit();
       });
       </code>
    </pre>
    <pre>
       <code>
-      casper.<span style="color: red;">waitForSelector('.tweet-row'</span>, function() {});
-      casper.<span style="color: red;">waitWhileSelector('.selector'</span>, function() {});
+      casper.<mark>waitForSelector('.tweet-row'</mark>, function() {});
+      casper.<mark>waitWhileSelector('.selector'</mark>, function() {});
 
-      casper.<span style="color: red;">waitUntilVisible('.tweet-row'</span>, function() {});
-      casper.<span style="color: red;">waitWhileVisible('.selector'</span>, function() {});
+      casper.<mark>waitUntilVisible('.tweet-row'</mark>, function() {});
+      casper.<mark>waitWhileVisible('.selector'</mark>, function() {});
 
-      casper.<span style="color: red;">waitForPopup(/popup\.html$/</span>, function() {});
-      this.<span style="color: red;">waitForResource("foobar.png")</span>;
+      casper.<mark>waitForPopup(/popup\.html$/</mark>, function() {});
+      this.<mark>waitForResource("foobar.png")</mark>;
       </code>
    </pre>
 </section>
@@ -280,27 +279,27 @@
    <h2>Evaluates is a hard Worker</h2>
    <pre>
       <code>
-      casper.<span style="color: red;">evaluate</span>(function(username, password) {<span style="color: blue;">
+      casper.<mark>evaluate</mark>(function(username, password) {<mark class="alt">
           document.querySelector('#username').value = username;
           document.querySelector('#password').value = password;
-          document.querySelector('#submit').click();</span>
-      }, <span style="color: red;">'sheldon.cooper', 'b4z1ng4');
+          document.querySelector('#submit').click();</mark>
+      }, <mark>'sheldon.cooper', 'b4z1ng4');
       </code>
    </pre>
    <pre>
       <code>
       casper = require('casper').create {
-          <span style="color: red;">clientScripts: ["includes/underscore-min.js"]</span>
-          <span style="color: red;">remoteScripts: ["http://code.jquery.com/jquery-1.9.1.min.js"]</span>
+          <mark>clientScripts: ["includes/underscore-min.js"]</mark>
+          <mark>remoteScripts: ["http://code.jquery.com/jquery-1.9.1.min.js"]</mark>
       }
       </code>
    </pre>
    <pre>
       <code>
-      this.test.<span style="color: red;">assertEval</span>(function(title) 
+      this.test.<mark>assertEval</mark>(function(title) 
       }, 'Google', 'google.fr title is "Google"');
 
-      this.test.<span style="color: red;">assertEvalEquals</span>(function() {
+      this.test.<mark>assertEvalEquals</mark>(function() {
          return document.title;
       }, 'Google', 'google.fr title is "Google"');
       </code>
@@ -317,20 +316,20 @@
    <pre>
       <code>
       casper.start('http://www.weather.com/', function() {
-          this.<span style="color: red;">captureSelector('weather.png', '#wx-main')</span>;
+          this.<mark>captureSelector('weather.png', '#wx-main')</mark>;
       });
       </code>
    </pre>
    <pre>
       <code>
-      casper.start().<span style="color: red;">zoom(2)</span>.thenOpen('http://google.com', function() {
+      casper.start().<mark>zoom(2)</mark>.thenOpen('http://google.com', function() {
           this.capture('big-google.png');
       });
       </code>
    </pre>
    <pre>
       <code>
-      this.<span style="color: red;">download</span>(url, 'google_company.html');
+      this.<mark>download</mark>(url, 'google_company.html');
       </code>
    </pre>
 </section>
@@ -339,7 +338,7 @@
    <h2>events and filters</h2>
    <pre>
       <code>
-      casper.<span style="color: red;">on('open'</span>, function(<span style="color: red;">location, settings</span>) {
+      casper.<mark>on('open'</mark>, function(<mark>location, settings</mark>) {
           casper.echo(location);
       });
       </code>
@@ -347,19 +346,19 @@
    <pre>
       <code>
       // listening to a custom event
-      casper.<span style="color: red;">on('google.loaded'</span>, function() {
+      casper.<mark>on('google.loaded'</mark>, function() {
           this.echo('Google page title is ' + this.getTitle());
       });
       casper.start('http://google.com/', function() {
          // emitting a custom event
-         this.<span style="color: red;">emit('google.loaded'</span>);
+         this.<mark>emit('google.loaded'</mark>);
       });
       </code>
    </pre>
    <pre>
       <code>
-      casper.<span style="color: red;">setFilter('open.location'</span>, function(<span style="color: red;">location</span>) {
-         return /\?+/.test(location) ? <span style="color: red;">location += "&foo=42"</span> : location += "?foo=42";
+      casper.<mark>setFilter('open.location'</mark>, function(<mark>location</mark>) {
+         return /\?+/.test(location) ? <mark>location += "&foo=42"</mark> : location += "?foo=42";
       });
       </code>
    </pre>
@@ -367,27 +366,27 @@
 
 <section class="slide" id="debug">
    <h2>Drawback: Debugging</h2>
-   <ol style="list-style-type: square;">
-      <li style="background-color:transparent;">
+   <ol>
+      <li>
          <h3>From the creator himself: Debugging is hard.<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>PhantomJS don't give many useful informations about the failure.<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>Advice 1: Always name the functions.<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>Advice 2: There is a bookmarklet to test ClientUtil on your favourite browser. Use it.<h3>
       </li>
-      <li style="background-color:transparent;">
+      <li>
          <h3>Advice 3: Use verbose mode.<h3>
       </li>
       <pre>
          <code>
-         var casper = require('casper').create({<span style="color: red;">   
+         var casper = require('casper').create({<mark>   
              verbose: true,
-             logLevel: "debug"</span>
+             logLevel: "debug"</mark>
          });
          </code>
       </pre>
